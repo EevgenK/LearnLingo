@@ -1,0 +1,41 @@
+:root {
+  --main-bg_color: #fff;
+  --bg-color: #f4c550;
+  --bg-color_hover: #fbe9ba;
+  --text-color: #121417;
+  --text-grey: #8a8a89;
+  --green-color: #38cd3e;
+  --transition: 250ms linear;
+  --first-theme: #f4c550;
+  --first-theme_hover: #fbe9ba;
+  --second-theme: #9fbaae;
+  --second-theme_hover: #cbded3;
+  --third-theme: #9fb7ce;
+  --third-theme_hover: #bfd6ea;
+  --fourth-theme: #e0a39a;
+  --fourth-theme_hover: #f2c0bd;
+  --fifth-theme: #f0aa8d;
+  --fifth-theme_hover: #f4c8ba;
+}
+
+[data-theme='var(--first-theme)'] {
+  --bg-color: var(--first-theme);
+  --bg-color_hover: var(--first-theme_hover);
+}
+[data-theme='var(--second-theme)'] {
+  --bg-color: var(--second-theme);
+  --bg-color_hover: var(--second-theme_hover);
+}
+
+[data-theme='var(--third-theme)'] {
+  --bg-color: var(--third-theme);
+  --bg-color_hover: var(--third-theme_hover);
+}
+[data-theme='var(--fourth-theme)'] {
+  --bg-color: var(--fourth-theme);
+  --bg-color_hover: var(--fourth-theme_hover);
+}
+[data-theme='var(--fifth-theme)'] {
+  --bg-color: var(--fifth-theme);
+  --bg-color_hover: var(--fifth-theme_hover);
+}

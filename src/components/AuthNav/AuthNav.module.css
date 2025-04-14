@@ -1,0 +1,29 @@
+.navigation {
+  font-weight: 700;
+  line-height: 1.25;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon {
+  stroke: var(--bg-color);
+  fill: transparent;
+  transition: stroke var(--transition);
+}
+.login:hover .icon,
+.login:focus .icon {
+  stroke: var(--bg-color_hover);
+}
+.register {
+  color: var(--main-bg_color);
+  background-color: var(--text-color);
+  border-radius: 12px;
+  padding: 14px 39px;
+  width: 166px;
+  height: 48px;
+}

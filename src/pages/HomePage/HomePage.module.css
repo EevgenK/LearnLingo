@@ -1,0 +1,7 @@
+.hero {
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 720px auto;
+  grid-template-rows: 530px auto;
+  gap: 24px;
+}

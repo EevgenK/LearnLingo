@@ -1,0 +1,26 @@
+.benefits {
+  display: flex;
+  gap: 100px;
+  padding: 20px 0px;
+  justify-content: center;
+  border: 1.5px dashed var(--bg-color);
+  border-radius: 30px;
+  grid-column: 1 / span 2;
+}
+
+.benefits li {
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.benefits span {
+  width: 96px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+}

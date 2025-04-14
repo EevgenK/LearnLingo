@@ -1,15 +1,21 @@
 @import 'modern-normalize';
+@import './styles/vars.css';
+@import './styles/fonts/fonts.css';
 
 html {
   box-sizing: border-box;
   scrollbar-gutter: stable;
+  background-color: var(--main-bg_color);
 }
 
 body {
   max-width: 1440px;
   margin: 0 auto;
-
-  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 *,

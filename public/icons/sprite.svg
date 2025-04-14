@@ -1,0 +1,21 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-arrow-down" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 12l8 8 8-8"></path>
+</symbol>
+<symbol id="icon-heart" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M27.787 6.146c-1.327-1.328-3.161-2.149-5.187-2.149s-3.86 0.821-5.187 2.149l-1.413 1.414-1.413-1.414c-1.331-1.35-3.18-2.186-5.224-2.186-4.051 0-7.335 3.284-7.335 7.335 0 2.044 0.836 3.892 2.184 5.223l0.001 0.001 11.787 11.787 11.787-11.787c1.327-1.327 2.148-3.161 2.148-5.186s-0.821-3.859-2.148-5.186v0z"></path>
+</symbol>
+<symbol id="icon-log-in" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M20 4h1.6c2.24 0 3.36 0 4.216 0.435 0.756 0.391 1.357 0.992 1.737 1.726l0.011 0.022c0.437 0.856 0.437 1.976 0.437 4.216v11.2c0 2.24 0 3.36-0.437 4.216-0.391 0.756-0.992 1.356-1.725 1.737l-0.022 0.011c-0.856 0.437-1.976 0.437-4.216 0.437h-1.6M13.333 9.333l6.667 6.667M20 16l-6.667 6.667M20 16h-16"></path>
+</symbol>
+<symbol id="icon-star" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.4" d="M12.4 10.394l3.6-6.822 3.6 6.822c0.318 0.604 0.9 1.024 1.57 1.14l7.6 1.316-5.376 5.532c-0.385 0.396-0.622 0.937-0.622 1.533 0 0.11 0.008 0.219 0.024 0.325l-0.001-0.012 1.1 7.636-6.924-3.404c-0.283-0.142-0.617-0.225-0.97-0.225s-0.687 0.083-0.983 0.231l0.013-0.006-6.924 3.404 1.1-7.636c0.014-0.094 0.022-0.202 0.022-0.313 0-0.596-0.237-1.138-0.623-1.534l0.001 0-5.378-5.532 7.6-1.314c0.687-0.122 1.254-0.547 1.566-1.13l0.006-0.012z"></path>
+</symbol>
+<symbol id="icon-ukraine" viewBox="0 0 32 32">
+<path fill="#ffda44" style="fill: var(--color1, #ffda44)" d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16z"></path>
+<path fill="#338af3" style="fill: var(--color2, #338af3)" d="M0 16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+</symbol>
+
+</defs>
+</svg>
