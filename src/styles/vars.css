@@ -16,6 +16,7 @@
   --fourth-theme_hover: #f2c0bd;
   --fifth-theme: #f0aa8d;
   --fifth-theme_hover: #f4c8ba;
+  --star-color: #ffc531;
 }
 
 [data-theme='var(--first-theme)'] {

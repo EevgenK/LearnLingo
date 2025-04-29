@@ -1,0 +1,27 @@
+.photo_wrap {
+  border: 3px solid var(--bg-color_hover);
+  border-radius: 100px;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 100px;
+}
+.photo_wrap::before {
+  content: ' ';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--main-bg_color);
+  border-radius: 100px;
+  background-color: var(--green-color);
+  top: 19px;
+  left: 85px;
+}

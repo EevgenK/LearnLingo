@@ -1,0 +1,9 @@
+.liked {
+  stroke: var(--text-color);
+  fill: transparent;
+  cursor: pointer;
+}
+.added {
+  stroke: var(--bg-color);
+  fill: var(--bg-color);
+}

@@ -1,0 +1,38 @@
+.statistic_wrap {
+  display: flex;
+  margin-bottom: 6px;
+  & .label {
+    margin-right: 192px;
+  }
+}
+
+.statistic_list {
+  display: flex;
+  gap: 16px;
+  margin-right: 64px;
+  & li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.statistic_list li:not(:last-child)::after {
+  content: '|';
+  width: 2px;
+  color: var(--text-grey);
+}
+
+.statistic_list li:first-child::before {
+  content: url('/public/icons/book.svg');
+
+  width: 16px;
+  height: 16px;
+}
+.statistic_list li:nth-child(3) svg {
+  fill: var(--star-color);
+  width: 16px;
+  height: 16px;
+}
+.statistic_list li:last-child span {
+  color: var(--green-color);
+}

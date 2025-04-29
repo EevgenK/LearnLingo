@@ -1,0 +1,13 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.languages {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.label {
+  color: var(--text-grey);
+  text-decoration: none;
+}
