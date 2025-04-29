@@ -19,8 +19,10 @@ const TeachersList = forwardRef<HTMLUListElement>((_, ref) => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchTeachers(null));
-  }, [dispatch]);
+    if (!teachers.length) {
+      dispatch(fetchTeachers(null));
+    }
+  }, [dispatch, teachers.length]);
 
   if (isLoading && teachers.length === 0) {
     return <Loader />;

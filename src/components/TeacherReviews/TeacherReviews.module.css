@@ -1,0 +1,48 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.avatar {
+  stroke: var(--text-color);
+}
+.review {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  gap: 2px 12px;
+}
+
+.icon {
+  place-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.name {
+  color: var(--text-grey);
+}
+.rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  fill: var(--star-color);
+}
+.comment {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  margin-top: 14px;
+}

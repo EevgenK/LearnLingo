@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import Loader from './components/Loader/Loader';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
+
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));

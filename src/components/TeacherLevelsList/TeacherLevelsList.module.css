@@ -1,0 +1,11 @@
+.levels {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  & > li {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    padding: 8px 12px;
+  }
+}

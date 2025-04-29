@@ -1,0 +1,20 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: start;
+}
+.experience {
+  text-decoration: underline;
+  list-style-type: none;
+  cursor: pointer;
+  text-decoration-skip-ink: none;
+}
+.text {
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+details[open] .experience {
+  margin-bottom: 16px;
+}

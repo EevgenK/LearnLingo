@@ -3,6 +3,8 @@ import CardAvatar from '../CardAvatar/CardAvatar';
 import TeacherDescriptionList from '../TeacherDescriptionList/TeacherDescriptionList';
 import TeacherStatistic from '../TeacherStatistic/TeacherStatistic';
 import s from './TeacherCard.module.css';
+import TeacherExperience from '../TeacherExperience/TeacherExperience';
+
 export interface TeacherCardProps {
   item: Teacher;
 }
@@ -24,6 +26,11 @@ const TeacherCard = ({ item }: TeacherCardProps) => {
           languages={item.languages}
           lesson_info={item.lesson_info}
           conditions={item.conditions}
+        />
+        <TeacherExperience
+          experience={item.experience}
+          reviews={item.reviews}
+          levels={item.levels}
         />
       </div>
     </li>
