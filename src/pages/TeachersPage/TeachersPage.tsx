@@ -1,46 +1,26 @@
 import s from './TeachersPage.module.css';
 import TeachersList from '../../components/TeachersList/TeachersList';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectHasMore,
-  selectIsLoading,
-  selectLastKey,
-} from '../../redux/teachers/selectors';
-import { AppDispatch } from '../../redux/store';
-import { fetchTeachers } from '../../redux/teachers/operations';
+
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../redux/teachers/selectors';
+
 import Loader from '../../components/Loader/Loader';
 import { useRef } from 'react';
-import { smoothScroll } from '../../utils/smoothScroll';
+
+import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const TeachersPage = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const hasMore = useSelector(selectHasMore);
-  const lastKey = useSelector(selectLastKey);
   const isLoading = useSelector(selectIsLoading);
-
   const listRef = useRef<HTMLUListElement>(null);
 
-  const loadMore = async () => {
-    await dispatch(fetchTeachers(lastKey));
-    smoothScroll(listRef);
-  };
   return (
     <section className={s.teachers}>
+      <SearchBar />
       <TeachersList ref={listRef} />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <CustomButton
-          onClick={loadMore}
-          disabled={!hasMore || isLoading}
-          type="button"
-        >
-          Load more
-        </CustomButton>
-      )}
+      {isLoading ? <Loader /> : <LoadMoreButton listRef={listRef} />}
     </section>
   );
 };
-/*ADDING SCROLL */
+
 export default TeachersPage;

@@ -6,15 +6,15 @@ import TeacherCard from '../TeacherCard/TeacherCard';
 import { AppDispatch } from '../../redux/store';
 import {
   selectError,
+  selectFilteredTeachersList,
   selectIsLoading,
-  selectTeachersList,
 } from '../../redux/teachers/selectors';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import s from './TeachersList.module.css';
 
 const TeachersList = forwardRef<HTMLUListElement>((_, ref) => {
   const dispatch = useDispatch<AppDispatch>();
-  const teachers = useSelector(selectTeachersList);
+  const teachers = useSelector(selectFilteredTeachersList);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 

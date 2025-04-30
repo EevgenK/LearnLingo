@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import s from './TeacherExperience.module.css';
 import { Teacher } from '../../types/teacher.type';
-
 import TeacherLevelsList from '../TeacherLevelsList/TeacherLevelsList';
-import CustomButton from '../CustomButton/CustomButton';
 import TeacherReviews from '../TeacherReviews/TeacherReviews';
 import BookingButton from '../BookingButton/BookingButton';
 
