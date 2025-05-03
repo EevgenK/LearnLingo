@@ -1,0 +1,5 @@
+.user {
+  & span {
+    color: var(--bg-color);
+  }
+}

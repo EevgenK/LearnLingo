@@ -17,6 +17,7 @@
   --fifth-theme: #f0aa8d;
   --fifth-theme_hover: #f4c8ba;
   --star-color: #ffc531;
+  --error-color: rgb(250, 59, 59);
 }
 
 [data-theme='var(--first-theme)'] {

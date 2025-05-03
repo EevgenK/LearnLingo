@@ -13,6 +13,7 @@ const Header = () => {
         links={[
           { link: '/', title: 'Home' },
           { link: '/teachers', title: 'Teachers' },
+          { link: '/favorites', title: 'Favorites' },
         ]}
       />
       <AuthNav />

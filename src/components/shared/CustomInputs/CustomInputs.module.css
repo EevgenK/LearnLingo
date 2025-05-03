@@ -1,0 +1,50 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color var(--transition);
+  position: relative;
+}
+
+.input:focus,
+.input:hover {
+  box-shadow: none;
+  border-color: var(--bg-color);
+  outline: none;
+}
+.error {
+  color: var(--error-color);
+  font-size: 12px;
+  text-align: start;
+  position: absolute;
+  top: 100%;
+}
+.eye {
+  stroke: var(--text-color);
+  fill: transparent;
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  transition: stroke var(--transition);
+  &:focus,
+  &:hover {
+    stroke: var(--bg-color);
+  }
+}
+.input:focus + .toggle .eye,
+.input:hover + .toggle .eye {
+  stroke: var(--bg-color);
+}

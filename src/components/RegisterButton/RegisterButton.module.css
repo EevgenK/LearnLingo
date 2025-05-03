@@ -1,0 +1,8 @@
+.register {
+  color: var(--main-bg_color);
+  background-color: var(--text-color);
+  border-radius: 12px;
+  padding: 14px 39px;
+  width: 166px;
+  height: 48px;
+}

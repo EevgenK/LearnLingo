@@ -1,29 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import s from './AuthNav.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuth } from '../../redux/auth/selectors';
+import UserGreeting from '../UserGreeting/UserGreeting';
+
+import RegisterButton from '../RegisterButton/RegisterButton';
+import LoginLogoutButton from '../LoginLogoutButton/LoginLogoutButton';
 
 const AuthNav = () => {
+  const userName = useSelector(selectAuth)?.name;
+
   return (
-    <ul className={s.navigation}>
-      <li>
-        <NavLink className={s.login} to="/">
-          <svg
-            className={s.icon}
-            role="img"
-            aria-label="Log in"
-            width="20"
-            height="20"
-          >
-            <use href="/icons/sprite.svg#icon-log-in" />
-          </svg>
-          <span className={s.text}>Log in</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={s.register} to="/">
-          Registration
-        </NavLink>
-      </li>
-    </ul>
+    <div className={s.authorization}>
+      <LoginLogoutButton />
+
+      {userName ? <UserGreeting name={userName} /> : <RegisterButton />}
+    </div>
   );
 };
 

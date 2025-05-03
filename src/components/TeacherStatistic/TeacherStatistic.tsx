@@ -28,6 +28,7 @@ const TeacherStatistic = ({
           Price / 1 hour: <span>{price_per_hour}$</span>
         </li>
       </ul>
+
       <LikedButton />
     </div>
   );

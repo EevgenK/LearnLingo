@@ -1,0 +1,14 @@
+.login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon {
+  stroke: var(--bg-color);
+  fill: transparent;
+  transition: stroke var(--transition);
+}
+.login:hover .icon,
+.login:focus .icon {
+  stroke: var(--bg-color_hover);
+}

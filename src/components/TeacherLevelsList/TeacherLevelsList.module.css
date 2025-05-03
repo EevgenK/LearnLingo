@@ -7,5 +7,10 @@
     border: 1px solid rgba(18, 20, 23, 0.2);
     border-radius: 35px;
     padding: 8px 12px;
+    transition: all var(--transition);
   }
+}
+.chosen_level {
+  background-color: var(--bg-color);
+  border-color: var(--bg-color);
 }
