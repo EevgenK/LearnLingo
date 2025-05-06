@@ -18,6 +18,7 @@ const TeacherCard = ({ item }: TeacherCardProps) => {
           avatar_url={item.avatar_url}
           rating={item.rating}
           price_per_hour={item.price_per_hour}
+          id={item.id}
         />
         <h2 className={s.title}>
           {item.name} {item.surname}

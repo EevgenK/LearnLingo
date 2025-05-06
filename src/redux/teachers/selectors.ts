@@ -8,6 +8,8 @@ export const selectIsLoading = (state: RootState) => state.teachers.isLoading;
 export const selectError = (state: RootState) => state.teachers.error;
 export const selectHasMore = (state: RootState) => state.teachers.hasMore;
 export const selectLastKey = (state: RootState) => state.teachers.lastKey;
+export const selectFavoriteTeachers = (state: RootState) =>
+  state.teachers.favoriteTeachers;
 
 export const makeSelectUniqueValuesByKeys = <K extends keyof Teacher>(
   keys: K[],

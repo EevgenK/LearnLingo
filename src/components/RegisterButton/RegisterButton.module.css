@@ -5,4 +5,9 @@
   padding: 14px 39px;
   width: 166px;
   height: 48px;
+  transition: background-color var(--transition);
+  &:hover,
+  &:focus {
+    background-color: var(--text-grey);
+  }
 }

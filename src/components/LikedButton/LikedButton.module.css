@@ -2,8 +2,19 @@
   stroke: var(--text-color);
   fill: transparent;
   cursor: pointer;
+  transition: stroke var(--transition);
+  &:hover,
+  &:focus {
+    stroke: var(--bg-color);
+  }
 }
 .added {
   stroke: var(--bg-color);
   fill: var(--bg-color);
+  transition: all var(--transition);
+  &:hover,
+  &:focus {
+    stroke: var(--bg-color_hover);
+    fill: var(--bg-color_hover);
+  }
 }

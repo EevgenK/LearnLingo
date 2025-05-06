@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 import { AppDispatch } from '../../redux/store';
 import { changeFilters } from '../../redux/filters/slice';
 import ResetButton from '../ResetButton/ResetButton';
-import AuthProvider from '../../firebase/auth';
 
 export interface IFormValues {
   levels: string;
@@ -67,7 +66,6 @@ const SearchBar = () => {
         {...register('price')}
       />
       <ResetButton action={handleReset} />
-      <AuthProvider />
     </form>
   );
 };

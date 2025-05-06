@@ -6,6 +6,7 @@ import createContactSchema from '../../utils/validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useModal from '../../utils/hooks/useModal';
 import { RegisterPayload } from '../../redux/auth/operations';
+import AuthWithGoogleButton from '../AuthWithGoogleButton/AuthWithGoogleButton';
 
 export interface AuthFormProps {
   initialVal: RegisterPayload;
@@ -51,9 +52,13 @@ const AuthForm = ({
       <h1>{title}</h1>
       <p className={s.description}>{description}</p>
       <CustomInputs values={initialVal} register={register} errors={errors} />
-      <CustomButton style={{ width: '100%' }} type="submit">
+      <CustomButton
+        style={{ width: '100%', marginBottom: '20px' }}
+        type="submit"
+      >
         {buttonText}
       </CustomButton>
+      <AuthWithGoogleButton text={buttonText + ' with Google'} />
     </form>
   );
 };

@@ -13,7 +13,6 @@ const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const onHandleSubmit = async (values: RegisterPayload): Promise<void> => {
-    console.log(values);
     const { name, email, password } = values;
     await dispatch(registerUser({ name, email, password }));
   };

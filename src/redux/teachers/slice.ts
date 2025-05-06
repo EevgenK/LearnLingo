@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { TeachersState } from '../../types/teachersState.type';
-import { fetchTeachers } from './operations';
+import { fetchTeachers, fetchTeachersByIds } from './operations';
 
 const initialState: TeachersState = {
   teachers: [],
@@ -8,6 +8,7 @@ const initialState: TeachersState = {
   error: null,
   hasMore: true,
   lastKey: null,
+  favoriteTeachers: [],
 };
 const slice = createSlice({
   name: 'teachersList',
@@ -33,6 +34,17 @@ const slice = createSlice({
         state.isLoading = false;
         state.error = action.payload || 'Something went wrong';
         state.hasMore = false;
+      })
+      .addCase(fetchTeachersByIds.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchTeachersByIds.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.favoriteTeachers = action.payload;
+      })
+      .addCase(fetchTeachersByIds.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || 'Failed to fetch teachers';
       });
   },
 });

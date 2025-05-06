@@ -11,7 +11,6 @@ const initialValues = {
 const LoginForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const onHandleSubmit = async (values: RegisterPayload): Promise<void> => {
-    console.log(values);
     const { email, password } = values;
     await dispatch(loginUser({ email, password }));
   };

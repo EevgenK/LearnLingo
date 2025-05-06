@@ -5,12 +5,15 @@ import LikedButton from '../LikedButton/LikedButton';
 type TeacherStatisticProps = Pick<
   TeacherCardProps['item'],
   'lessons_done' | 'avatar_url' | 'rating' | 'price_per_hour'
->;
+> & {
+  id: string;
+};
 const TeacherStatistic = ({
   lessons_done,
   avatar_url,
   rating,
   price_per_hour,
+  id,
 }: TeacherStatisticProps) => {
   return (
     <div className={s.statistic_wrap}>
@@ -29,7 +32,7 @@ const TeacherStatistic = ({
         </li>
       </ul>
 
-      <LikedButton />
+      <LikedButton teacherId={id} />
     </div>
   );
 };

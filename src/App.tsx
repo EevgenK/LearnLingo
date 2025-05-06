@@ -19,7 +19,7 @@ const App = () => {
           <Route
             path="/favorites"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute redirectTo="/">
                 <FavoritesPage />
               </ProtectedRoute>
             }

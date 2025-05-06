@@ -9,9 +9,9 @@ import {
 } from 'firebase/database';
 import { db } from '../../firebase/firebaseConfig';
 import { Teacher } from '../../types/teacher.type';
+import { firebaseErrorController } from '../../utils/firebaseErrorController';
 
 const PAGE_SIZE = 4;
-
 export const fetchTeachers = createAsyncThunk<
   { teachers: Teacher[]; lastKey: string | null; hasMore: boolean },
   string | null,
@@ -34,31 +34,47 @@ export const fetchTeachers = createAsyncThunk<
     if (!snapshot.exists()) {
       return { teachers: [], lastKey: null, hasMore: false };
     }
-
     const data = snapshot.val();
-    const teacherKeys = Object.keys(data);
-    const teacherArray = Object.entries(data).map(([key, value]) => ({
-      key,
-      ...(value as Omit<Teacher, 'key'>),
+    const rawEntries = Object.entries(data);
+
+    const hasMore = rawEntries.length > PAGE_SIZE;
+    const paginatedEntries = startKey
+      ? rawEntries.slice(1, PAGE_SIZE + 1)
+      : rawEntries.slice(0, PAGE_SIZE);
+
+    const teachers = paginatedEntries.map(([id, value]) => ({
+      id,
+      ...(value as Omit<Teacher, 'id'>),
     }));
 
-    const hasNext = teacherKeys.length > PAGE_SIZE;
-    let newTeachers = teacherArray;
-    let nextKey: string | null = null;
+    const lastKey = hasMore ? rawEntries[PAGE_SIZE][0] : null;
 
-    if (hasNext) {
-      newTeachers = teacherArray.slice(
-        startKey ? 1 : 0,
-        PAGE_SIZE + (startKey ? 1 : 0),
-      );
-      nextKey = teacherKeys[PAGE_SIZE];
-    }
-
-    return { teachers: newTeachers, lastKey: nextKey, hasMore: hasNext };
+    return { teachers, lastKey, hasMore };
   } catch (error: unknown) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
-    }
-    return rejectWithValue('An unknown error occurred');
+    return rejectWithValue(firebaseErrorController(error));
+  }
+});
+
+export const fetchTeachersByIds = createAsyncThunk<
+  Teacher[],
+  string[],
+  { rejectValue: string }
+>('teachers/fetchByIds', async (ids, { rejectWithValue }) => {
+  try {
+    const snapshot = await get(ref(db, 'teachers'));
+    const allTeachers = snapshot.val();
+
+    if (!allTeachers) return [];
+
+    const filteredTeachers: Teacher[] = ids
+      .map((id) => {
+        const teacher = allTeachers[id];
+        return teacher ? { id, ...teacher } : null;
+      })
+      .filter((t): t is Teacher => t !== null);
+
+    return filteredTeachers;
+  } catch (error: unknown) {
+    return rejectWithValue(firebaseErrorController(error));
   }
 });

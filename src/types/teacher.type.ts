@@ -1,5 +1,5 @@
 export interface Teacher {
-  key: string;
+  id: string;
   name: string;
   surname: string;
   languages: string[];

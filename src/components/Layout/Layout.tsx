@@ -11,20 +11,28 @@ import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
+import { useAuthObserver } from '../../firebase/useAuthObserver';
+import ForbiddenContent from '../ForbiddenContent/ForbiddenContent';
+import Loader from '../Loader/Loader';
+import { selectIsAuthChecked } from '../../redux/auth/selectors';
 
 const Layout = () => {
+  useAuthObserver();
+  const isAuthChecked = useSelector(selectIsAuthChecked);
   const modalOpen = useSelector(selectModalStatus);
   const currentModalType = useSelector(selectModalType);
   const [modalContent, setModalContent] = useState<ReactNode>(null);
 
   const checkCurrentModalType = useCallback(() => {
-    if (!currentModalType) return null; /* IMPROVE  <NavListServices />*/
+    if (!currentModalType) return null;
 
     switch (currentModalType) {
       case 'registration':
         return <RegisterForm />;
       case 'login':
         return <LoginForm />;
+      case 'forbidden':
+        return <ForbiddenContent />;
       default:
         return null;
     }
@@ -37,6 +45,9 @@ const Layout = () => {
       setModalContent(null);
     }
   }, [checkCurrentModalType, modalOpen]);
+  if (!isAuthChecked) {
+    return <Loader />;
+  }
 
   return (
     <>

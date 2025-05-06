@@ -16,11 +16,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         dispatch(
           setUser({
             name: user.displayName ?? '',
             uid: user.uid,
+            email: user.email ?? '',
           }),
         );
       } else {

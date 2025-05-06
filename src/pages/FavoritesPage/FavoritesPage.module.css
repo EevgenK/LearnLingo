@@ -1,0 +1,11 @@
+.teachers {
+  background-color: #f8f8f8;
+  padding: 32px 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}

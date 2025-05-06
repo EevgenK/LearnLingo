@@ -6,4 +6,5 @@ export interface TeachersState {
   error: string | null;
   hasMore: boolean;
   lastKey: string | null;
+  favoriteTeachers: Teacher[];
 }
