@@ -1,54 +1,90 @@
-# React + TypeScript + Vite
+# Learn-lingo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Learn-lingo** is a desktop-oriented React application designed to help users find language tutors for foreign language learning. It offers a wide range of features including tutor filtering, theming, and trial lesson booking.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Filter tutors by:
+  - Language
+  - Level of knowledge
+  - Hourly price
+- ⭐ Add tutors to favorites (requires authentication)
+- 📅 Book a free trial lesson
+- 🎨 Switch between 5 color themes
+- 🔐 Firebase authentication and user data management
+- 🧠 Form validation using `react-hook-form` and `yup`
+- ⚛️ State management using Redux Toolkit
+- 🌐 Routing with `react-router-dom`
 
-## Expanding the ESLint configuration
+## 📐 Design
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+You can view the design prototype on Figma:
+👉 [View Figma Design](https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/%D0%9F%D0%B5%D1%82-%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82-%D0%B4%D0%BB%D1%8F-%D0%9A%D0%A6?type=design&node-id=0-1&mode=design&t=jCmjSs9PeOjObYSc-0)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🧪 Tech Stack
+
+- React 19
+- Redux Toolkit
+- Firebase
+- React Hook Form + Yup
+- Vite
+- TypeScript
+- ESLint
+- React Router v7
+- Modern Normalize
+- Theme management with CSS Modules and clsx
+
+## 📁 Project Structure
+
+src/
+│
+├── components/ # Reusable components
+├── pages/ # Route-based views
+├── hooks/ # Custom hooks
+├── redux/ # Redux slices and store config
+├── themes/ # Theme configurations
+├── utils/ # Helper functions
+└── App.tsx # App entry point
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/learn-lingo.git
+   cd learn-lingo
+   ```
+
+2. Install dependencies:
+
+```bash
+npm instal
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Start the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+4. Build the project for production:
+
+```bash
+npm run build
+```
+
+## 👤 Author
+
+Evgen Kulbachenko
+
+🔗
+[More works and contact info](https://portfolio-react-gamma-orcin.vercel.app/)
