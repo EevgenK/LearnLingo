@@ -36,15 +36,18 @@ You can view the design prototype on Figma:
 
 ## 📁 Project Structure
 
+## 📁 Project Structure
+
+````bash
 src/
-│
-├── components/ # Reusable components
-├── pages/ # Route-based views
-├── hooks/ # Custom hooks
-├── redux/ # Redux slices and store config
-├── themes/ # Theme configurations
-├── utils/ # Helper functions
-└── App.tsx # App entry point
+├── components/     # Reusable components
+├── pages/          # Route-based views
+├── hooks/          # Custom hooks
+├── redux/          # Redux slices and store config
+├── themes/         # Theme configurations
+├── utils/          # Helper functions
+└── App.tsx         # App entry point
+
 
 ## 🚀 Getting Started
 
@@ -59,10 +62,10 @@ Make sure you have the following installed:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/learn-lingo.git
-   cd learn-lingo
-   ```
+```bash
+git clone https://github.com/your-username/learn-lingo.git
+cd learn-lingo
+````
 
 2. Install dependencies:
 
