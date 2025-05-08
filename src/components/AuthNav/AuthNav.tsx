@@ -1,6 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import s from './AuthNav.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectAuth } from '../../redux/auth/selectors';
 import UserGreeting from '../UserGreeting/UserGreeting';
 

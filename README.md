@@ -47,7 +47,7 @@ src/
 ├── themes/         # Theme configurations
 ├── utils/          # Helper functions
 └── App.tsx         # App entry point
-
+```
 
 ## 🚀 Getting Started
 

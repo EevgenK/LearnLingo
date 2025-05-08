@@ -13,9 +13,9 @@ const colors = [
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
   const [showColors, setShowColors] = useState(false);
-  const onHandleChange = (e) => {
-    toggleTheme(e.target.title);
-    setShowColors(!showColors);
+  const onHandleChange = (e: React.MouseEvent<HTMLDivElement>) => {
+    toggleTheme(e.currentTarget.title);
+    setShowColors((prev) => !prev);
   };
 
   return (
