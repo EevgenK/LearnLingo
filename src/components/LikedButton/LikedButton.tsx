@@ -16,7 +16,7 @@ const LikedButton = ({ teacherId }: LikedButtonProps) => {
   const user = useSelector(selectAuth);
   const onHandleClick = async () => {
     if (!user) {
-      await dispatch(openModal('forbidden'));
+      await dispatch(openModal({ type: 'forbidden' }));
       return;
     }
     if (user.uid) {
@@ -26,7 +26,7 @@ const LikedButton = ({ teacherId }: LikedButtonProps) => {
 
   /*IMPROVE*/
   return (
-    <button aria-label="close" type="button" onClick={onHandleClick}>
+    <button aria-label="add to favorite" type="button" onClick={onHandleClick}>
       <svg className={clsx(s.liked, liked && s.added)} width="26" height="26">
         <use href="/icons/sprite.svg#icon-heart" />
       </svg>

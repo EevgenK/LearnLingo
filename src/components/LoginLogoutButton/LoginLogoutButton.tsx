@@ -15,7 +15,7 @@ const LoginLogoutButton = () => {
     if (user) {
       dispatch(logoutUser());
     } else {
-      dispatch(openModal('login'));
+      dispatch(openModal({ type: 'login' }));
     }
   }, [dispatch, user]);
   return (

@@ -1,0 +1,58 @@
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.radioLabel {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+.radioOption {
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.37;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.customRadio {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #d0d0d1;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  transition: background-color var(--transition);
+  flex-shrink: 0;
+}
+
+.customRadio::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: var(--transition);
+}
+.input:checked + .customRadio::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.input:checked + .customRadio {
+  border: 3px solid var(--bg-color);
+}

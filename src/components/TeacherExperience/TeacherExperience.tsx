@@ -9,12 +9,14 @@ interface TeacherExperienceProps {
   experience: string;
   reviews: Teacher['reviews'];
   levels: Teacher['levels'];
+  id: Teacher['id'];
 }
 
 const TeacherExperience = ({
   levels,
   experience,
   reviews,
+  id,
 }: TeacherExperienceProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +30,7 @@ const TeacherExperience = ({
         <TeacherReviews reviews={reviews} />
       </details>
       <TeacherLevelsList levels={levels} />
-      {isOpen && <BookingButton />}
+      {isOpen && <BookingButton id={id} />}
     </div>
   );
 };

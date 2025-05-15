@@ -1,12 +1,18 @@
+import clsx from 'clsx';
 import s from './CardAvatar.module.css';
 
 export interface CardAvatarProps {
-  link: string;
+  link?: string;
+  additionalClass?: string;
 }
-const CardAvatar = ({ link }: CardAvatarProps) => {
+const CardAvatar = ({ link, additionalClass }: CardAvatarProps) => {
   return (
-    <div className={s.photo_wrap}>
-      <img className={s.avatar} src={link} alt="teacher`s photo" />
+    <div className={clsx(additionalClass ? '' : s.photo_wrap)}>
+      <img
+        className={clsx(additionalClass ? additionalClass : s.avatar)}
+        src={link}
+        alt="teacher`s photo"
+      />
     </div>
   );
 };

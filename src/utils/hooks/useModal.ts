@@ -15,11 +15,14 @@ const useModal = () => {
   const isVisible = useSelector(selectIsVisible);
   const dispatch = useDispatch();
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleClose = useCallback(() => {
     dispatch(offModalVisible());
-    timeoutRef.current = setTimeout(() => {
+    closeTimeoutRef.current = setTimeout(() => {
       dispatch(closeModal());
+      document.body.style.overflow = 'auto';
     }, 500);
   }, [dispatch]);
 
@@ -34,20 +37,21 @@ const useModal = () => {
 
   useEffect(() => {
     if (isOpen) {
-      timeoutRef.current = setTimeout(() => {
+      openTimeoutRef.current = setTimeout(() => {
         dispatch(onModalVisible());
       }, 0);
 
       document.body.style.overflow = 'hidden';
     } else {
       dispatch(offModalVisible());
-      timeoutRef.current = setTimeout(() => {
+      closeTimeoutRef.current = setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
     }
 
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (openTimeoutRef.current) clearTimeout(openTimeoutRef.current);
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     };
   }, [dispatch, isOpen]);
 

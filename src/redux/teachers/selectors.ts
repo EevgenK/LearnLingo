@@ -2,6 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { Teacher } from '../../types/teacher.type';
 import { selectFilter } from '../filters/selectors';
+import { selectModalProperties } from '../modal/selectors';
 
 export const selectTeachersList = (state: RootState) => state.teachers.teachers;
 export const selectIsLoading = (state: RootState) => state.teachers.isLoading;
@@ -70,3 +71,10 @@ export const makeSelectTeachersFields = <K extends keyof Teacher>(
     });
   };
 };
+export const selectTeacherFromModal = createSelector(
+  [selectTeachersList, selectModalProperties],
+  (teachers, properties): Teacher | undefined => {
+    const teacherId = properties;
+    return teachers?.find((t) => t.id === teacherId);
+  },
+);

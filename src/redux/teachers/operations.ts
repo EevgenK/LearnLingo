@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   ref,
+  push,
   query,
   orderByKey,
   limitToFirst,
@@ -10,7 +11,18 @@ import {
 import { db } from '../../firebase/firebaseConfig';
 import { Teacher } from '../../types/teacher.type';
 import { firebaseErrorController } from '../../utils/firebaseErrorController';
-
+export interface BookingPayload {
+  teacherId: string;
+  purpose:
+    | 'Career and business'
+    | 'Lesson for kids'
+    | 'Living abroad'
+    | 'Exams and coursework'
+    | 'Culture, travel or hobby';
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+}
 const PAGE_SIZE = 4;
 export const fetchTeachers = createAsyncThunk<
   { teachers: Teacher[]; lastKey: string | null; hasMore: boolean },
@@ -78,3 +90,13 @@ export const fetchTeachersByIds = createAsyncThunk<
     return rejectWithValue(firebaseErrorController(error));
   }
 });
+
+export const addTrialLesson = async (data: BookingPayload) => {
+  try {
+    console.log(data);
+    const formRef = ref(db, 'trial-lessons');
+    await push(formRef, data);
+  } catch (error: unknown) {
+    throw firebaseErrorController(error);
+  }
+};

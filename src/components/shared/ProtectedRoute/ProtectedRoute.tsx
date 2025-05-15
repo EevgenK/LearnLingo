@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children, redirectTo }: ProtectedRouteProps) => {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      dispatch(openModal('forbidden'));
+      dispatch(openModal({ type: 'forbidden' }));
       setShouldRedirect(true);
     }
   }, [dispatch, isLoggedIn]);

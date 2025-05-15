@@ -15,6 +15,7 @@ import { useAuthObserver } from '../../firebase/useAuthObserver';
 import ForbiddenContent from '../ForbiddenContent/ForbiddenContent';
 import Loader from '../Loader/Loader';
 import { selectIsAuthChecked } from '../../redux/auth/selectors';
+import BookingForm from '../BookingForm/BookingForm';
 
 const Layout = () => {
   useAuthObserver();
@@ -33,6 +34,8 @@ const Layout = () => {
         return <LoginForm />;
       case 'forbidden':
         return <ForbiddenContent />;
+      case 'bookTrial':
+        return <BookingForm />;
       default:
         return null;
     }

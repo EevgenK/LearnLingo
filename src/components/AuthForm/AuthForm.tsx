@@ -24,11 +24,13 @@ const AuthForm = ({
   action,
 }: AuthFormProps) => {
   const { handleClose } = useModal();
+
   const schema = createContactSchema({
     isNameRequired: Boolean(initialVal.name),
     isEmailRequired: true,
     isPasswordRequired: true,
   });
+
   const {
     register,
     setValue,

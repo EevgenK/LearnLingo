@@ -32,6 +32,7 @@ const TeacherCard = ({ item }: TeacherCardProps) => {
           experience={item.experience}
           reviews={item.reviews}
           levels={item.levels}
+          id={item.id}
         />
       </div>
     </li>
