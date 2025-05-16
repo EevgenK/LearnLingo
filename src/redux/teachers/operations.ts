@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   ref,
   push,
+  set,
   query,
   orderByKey,
   limitToFirst,
@@ -11,6 +12,8 @@ import {
 import { db } from '../../firebase/firebaseConfig';
 import { Teacher } from '../../types/teacher.type';
 import { firebaseErrorController } from '../../utils/firebaseErrorController';
+import { generateNumericId } from '../../utils/generateNumericId';
+
 export interface BookingPayload {
   teacherId: string;
   purpose:
@@ -24,6 +27,7 @@ export interface BookingPayload {
   phoneNumber: string;
 }
 const PAGE_SIZE = 4;
+
 export const fetchTeachers = createAsyncThunk<
   { teachers: Teacher[]; lastKey: string | null; hasMore: boolean },
   string | null,
@@ -93,9 +97,20 @@ export const fetchTeachersByIds = createAsyncThunk<
 
 export const addTrialLesson = async (data: BookingPayload) => {
   try {
-    console.log(data);
     const formRef = ref(db, 'trial-lessons');
-    await push(formRef, data);
+    const newLessonRef = push(formRef);
+
+    const bookingId = generateNumericId(8);
+
+    if (!bookingId) throw new Error('BookingId wasn`t generated successfully');
+
+    const dataWithId = {
+      ...data,
+      bookingId,
+    };
+    await set(newLessonRef, dataWithId);
+
+    return bookingId;
   } catch (error: unknown) {
     throw firebaseErrorController(error);
   }

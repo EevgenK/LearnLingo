@@ -12,8 +12,9 @@ import {
 } from '../../redux/teachers/operations';
 import CustomButton from '../shared/CustomButton/CustomButton';
 import { yupResolver } from '@hookform/resolvers/yup';
-import createBookingSchema from '../../utils/BookingValidationSchema';
-import useModal from '../../utils/hooks/useModal';
+import createBookingSchema from '../../utils/validation/bookingValidationSchema';
+
+import { openModal } from '../../redux/modal/slice';
 
 const initialPurpose: Pick<BookingPayload, 'purpose'> = {
   purpose: 'Career and business',
@@ -30,7 +31,6 @@ const initialValues = {
 const BookingForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const teacher = useSelector(selectTeacherFromModal);
-  const { handleClose } = useModal();
 
   const schema = createBookingSchema({
     isNameRequired: true,
@@ -49,10 +49,26 @@ const BookingForm = () => {
   });
 
   const onHandleSubmit = async (formData: BookingPayload) => {
-    formData.teacherId = teacher?.id ?? '';
-    await addTrialLesson(formData);
-    reset();
-    handleClose();
+    try {
+      console.log(formData);
+      formData.teacherId = teacher?.id ?? '';
+      const bookingNumber = await addTrialLesson(formData);
+
+      dispatch(
+        openModal({
+          type: 'success',
+          properties: `${formData.fullName}, your booking was successfully completed. The booking id is "${bookingNumber}"`,
+        }),
+      );
+      reset();
+    } catch (e) {
+      dispatch(
+        openModal({
+          type: 'error',
+          properties: 'Something went wrong. Please try again!',
+        }),
+      );
+    }
   };
 
   return (

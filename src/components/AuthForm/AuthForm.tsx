@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import s from './AuthForm.module.css';
 import CustomButton from '../shared/CustomButton/CustomButton';
 import CustomInputs from '../shared/CustomInputs/CustomInputs';
-import createContactSchema from '../../utils/validationSchema';
+import createContactSchema from '../../utils/validation/validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useModal from '../../utils/hooks/useModal';
 import { RegisterPayload } from '../../redux/auth/operations';

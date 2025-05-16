@@ -17,6 +17,8 @@ import Loader from '../Loader/Loader';
 import { selectIsAuthChecked } from '../../redux/auth/selectors';
 import BookingForm from '../BookingForm/BookingForm';
 
+import ResultContent from '../ResultContent/ResultContent';
+
 const Layout = () => {
   useAuthObserver();
   const isAuthChecked = useSelector(selectIsAuthChecked);
@@ -37,7 +39,7 @@ const Layout = () => {
       case 'bookTrial':
         return <BookingForm />;
       default:
-        return null;
+        return <ResultContent />;
     }
   }, [currentModalType]);
 
