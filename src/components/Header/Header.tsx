@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import AuthNav from '../AuthNav/AuthNav';
 import Logo from '../Logo/Logo';
 import NavBar from '../NavBar/NavBar';
