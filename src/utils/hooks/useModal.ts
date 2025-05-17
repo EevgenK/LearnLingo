@@ -14,7 +14,7 @@ const useModal = () => {
   const isOpen = useSelector(selectModalStatus);
   const isVisible = useSelector(selectIsVisible);
   const dispatch = useDispatch();
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const openTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 

@@ -2,6 +2,30 @@
   font-weight: 700;
   line-height: 1.25;
   display: flex;
+  flex-direction: column-reverse;
+
   gap: 16px;
   align-items: center;
+}
+.hidden {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+  .authorization {
+    flex-direction: row;
+  }
+  .hidden {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 }

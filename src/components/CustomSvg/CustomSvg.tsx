@@ -1,8 +1,10 @@
+import s from './CustomSvg.module.css';
 const CustomSvg = () => {
   return (
     <svg
-      width="568"
-      height="530"
+      className={s.svg}
+      // width="568"
+      // height="530"
       viewBox="0 0 568 530"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -6,3 +6,22 @@
   font-weight: 400;
   line-height: 1.25;
 }
+.hidden {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+  .hidden {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}

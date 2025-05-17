@@ -1,7 +1,7 @@
 .start {
-  padding: 98px 64px;
   border-radius: 30px;
   background-color: #f8f8f8;
+  padding: 49px 32px;
 }
 .title {
   font-weight: 500;
@@ -18,9 +18,16 @@
   }
 }
 .description {
-  width: 471px;
   font-weight: 400;
   line-height: 1.37;
   letter-spacing: -0.02em;
   margin-bottom: 64px;
+}
+@media screen and (min-width: 1440px) {
+  .start {
+    padding: 98px 64px;
+  }
+  .description {
+    width: 471px;
+  }
 }

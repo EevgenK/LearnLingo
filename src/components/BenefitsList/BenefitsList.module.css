@@ -1,15 +1,15 @@
 .benefits {
   display: flex;
-  gap: 100px;
-  padding: 20px 0px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 50px;
   justify-content: center;
   border: 1.5px dashed var(--bg-color);
   border-radius: 30px;
-  grid-column: 1 / span 2;
 }
 
 .benefits li {
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1.14;
   letter-spacing: -0.02em;
   display: flex;
@@ -17,10 +17,32 @@
   gap: 16px;
 }
 .benefits span {
-  width: 96px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
+}
+@media screen and (min-width: 768px) {
+  .benefits {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px 20px;
+    justify-content: space-evenly;
+  }
+  .benefits li {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .benefits {
+    gap: 100px;
+    padding: 20px 0px;
+    justify-content: center;
+    grid-column: 1 / span 2;
+  }
+
+  .benefits span {
+    width: 96px;
+  }
 }

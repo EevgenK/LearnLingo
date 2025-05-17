@@ -18,6 +18,7 @@ import { selectIsAuthChecked } from '../../redux/auth/selectors';
 import BookingForm from '../BookingForm/BookingForm';
 
 import ResultContent from '../ResultContent/ResultContent';
+import MenuContent from '../MenuContent/MenuContent';
 
 const Layout = () => {
   useAuthObserver();
@@ -38,6 +39,8 @@ const Layout = () => {
         return <ForbiddenContent />;
       case 'bookTrial':
         return <BookingForm />;
+      case 'menu':
+        return <MenuContent />;
       default:
         return <ResultContent />;
     }

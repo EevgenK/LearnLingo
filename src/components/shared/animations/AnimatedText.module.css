@@ -1,0 +1,5 @@
+.animated_word {
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+}

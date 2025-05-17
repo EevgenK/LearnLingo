@@ -5,12 +5,17 @@ import UserGreeting from '../UserGreeting/UserGreeting';
 
 import RegisterButton from '../RegisterButton/RegisterButton';
 import LoginLogoutButton from '../LoginLogoutButton/LoginLogoutButton';
+import clsx from 'clsx';
 
-const AuthNav = () => {
+export interface AuthNavProps {
+  type?: string;
+}
+
+const AuthNav = ({ type }: AuthNavProps) => {
   const userName = useSelector(selectAuth)?.name;
 
   return (
-    <div className={s.authorization}>
+    <div className={clsx(s.authorization, type === 'main' && s.hidden)}>
       <LoginLogoutButton />
 
       {userName ? <UserGreeting name={userName} /> : <RegisterButton />}

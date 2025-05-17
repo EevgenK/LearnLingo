@@ -1,10 +1,24 @@
 import { NavLink } from 'react-router-dom';
 import s from './NavBar.module.css';
+import clsx from 'clsx';
+import { useSelector } from 'react-redux';
+import { selectAuth } from '../../redux/auth/selectors';
+import { useMemo } from 'react';
 export interface NavBarProps {
-  links: { link: string; title: string }[];
+  type?: string;
 }
-const NavBar = ({ links }: NavBarProps) => {
-  const items = links.map((el) => {
+const NavBar = ({ type }: NavBarProps) => {
+  const isLoggedIn = useSelector(selectAuth);
+  const navItems = useMemo(() => {
+    const base = [
+      { link: '/', title: 'Home' },
+      { link: '/teachers', title: 'Teachers' },
+    ];
+    return isLoggedIn
+      ? [...base, { link: '/favorites', title: 'Favorites' }]
+      : base;
+  }, [isLoggedIn]);
+  const items = navItems.map((el) => {
     return (
       <li key={el.title}>
         <NavLink className={s.link} to={el.link}>
@@ -14,8 +28,8 @@ const NavBar = ({ links }: NavBarProps) => {
     );
   });
   return (
-    <nav className={s.nav}>
-      <ul className={s.nav}>{items}</ul>
+    <nav className={clsx(type === 'main' && s.hidden)}>
+      <ul className={clsx(s.nav, type !== 'main' && s.modal)}>{items}</ul>
     </nav>
   );
 };

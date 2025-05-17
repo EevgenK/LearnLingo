@@ -1,7 +1,18 @@
 .hero {
-  padding: 0 64px;
-  display: grid;
-  grid-template-columns: 720px auto;
-  grid-template-rows: 530px auto;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 720px auto;
+    grid-template-rows: 530px auto;
+    gap: 24px;
+  }
 }
