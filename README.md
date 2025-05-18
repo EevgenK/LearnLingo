@@ -1,7 +1,7 @@
 # Learn-lingo
 
 **Learn-lingo** is a responsive React application designed to help users find language tutors for foreign language learning. It offers a wide range of features including tutor filtering, theming, and trial lesson booking.
-![App Snapshot](/title_picture.webp)
+![App Snapshot](/public/title_picture.webp)
 
 ## ✨ Features
 
@@ -38,7 +38,7 @@ You can view the design prototype on Figma:
 
 ## 📁 Project Structure
 
-````bash
+```bash
 src/
 ├── components/     # Reusable components
 ├── firebase/       # Firebase configurations
@@ -63,9 +63,9 @@ Make sure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/learn-lingo.git
+git clone https://github.com/EevgenK/LearnLingo
 cd learn-lingo
-````
+```
 
 2. Install dependencies:
 
@@ -89,5 +89,4 @@ npm run build
 
 Evgen Kulbachenko
 
-🔗
-[More works and contact info](https://portfolio-react-gamma-orcin.vercel.app/)
+👉 [More works and contact info](https://portfolio-react-gamma-orcin.vercel.app/)
