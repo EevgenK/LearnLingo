@@ -1,15 +1,18 @@
 .statistic_wrap {
+  position: relative;
   display: flex;
+  flex-direction: column;
   margin-bottom: 6px;
   & .label {
-    margin-right: 192px;
+    color: var(--text-grey);
   }
 }
 
 .statistic_list {
-  display: flex;
-  gap: 16px;
-  margin-right: 64px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
   & li {
     display: flex;
     align-items: center;
@@ -24,7 +27,6 @@
 
 .statistic_list li:first-child::before {
   content: url('/public/icons/book.svg');
-
   width: 16px;
   height: 16px;
 }
@@ -35,4 +37,29 @@
 }
 .statistic_list li:last-child span {
   color: var(--green-color);
+}
+@media screen and (min-width: 768px) {
+  .statistic_wrap {
+    & .label {
+      margin-right: 20px;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  .statistic_wrap {
+    flex-direction: row;
+    & .label {
+      margin-right: 192px;
+    }
+  }
+  .statistic_list {
+    display: flex;
+    gap: 16px;
+    margin-right: 64px;
+    & li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
 }

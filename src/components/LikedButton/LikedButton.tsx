@@ -24,9 +24,13 @@ const LikedButton = ({ teacherId }: LikedButtonProps) => {
     }
   };
 
-  /*IMPROVE*/
   return (
-    <button aria-label="add to favorite" type="button" onClick={onHandleClick}>
+    <button
+      className={s.btn}
+      aria-label="add to favorite"
+      type="button"
+      onClick={onHandleClick}
+    >
       <svg className={clsx(s.liked, liked && s.added)} width="26" height="26">
         <use href="/icons/sprite.svg#icon-heart" />
       </svg>

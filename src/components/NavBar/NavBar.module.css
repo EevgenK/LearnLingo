@@ -17,7 +17,7 @@
   flex-direction: column;
   text-transform: uppercase;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .hidden {
     position: static;
     opacity: 1;

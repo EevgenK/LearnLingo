@@ -18,3 +18,18 @@
     fill: var(--bg-color_hover);
   }
 }
+.btn {
+  position: absolute;
+  right: 0;
+  top: -50%;
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    top: -10%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .btn {
+    position: static;
+  }
+}

@@ -2,16 +2,34 @@
   background-color: var(--main-bg_color);
   border-radius: 24px;
   padding: 24px;
-  max-width: 1184px;
-  display: flex;
-  gap: 48px;
+  max-width: 343px;
+  min-width: 343px;
+  gap: 24px;
 }
 
 .title {
   font-size: 24px;
   line-height: 1;
-  margin-bottom: 32px;
+  margin-bottom: 14px;
 }
-.info_wrap {
-  max-width: 968px;
+
+@media screen and (min-width: 768px) {
+  .card {
+    display: flex;
+    max-width: 704px;
+    min-width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    max-width: 1184px;
+    gap: 48px;
+  }
+  .info_wrap {
+    max-width: 968px;
+  }
+  .title {
+    margin-bottom: 32px;
+  }
 }

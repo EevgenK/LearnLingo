@@ -1,6 +1,5 @@
 import { forwardRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Loader from '../Loader/Loader';
 import TeacherCard from '../TeacherCard/TeacherCard';
 import { AppDispatch } from '../../redux/store';
@@ -14,8 +13,8 @@ import {
   fetchTeachers,
   fetchTeachersByIds,
 } from '../../redux/teachers/operations';
-import s from './TeachersList.module.css';
 import { selectFavorites } from '../../redux/auth/selectors';
+import s from './TeachersList.module.css';
 type TeachersListProps = {
   type?: string;
 };

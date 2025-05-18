@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from 'react-hook-form';
-
-import s from './SearchBar.module.css';
 import { Teacher } from '../../types/teacher.type';
 import CustomSelect from '../shared/CustomSelect/CustomSelect';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeSelectUniqueValuesByKeys } from '../../redux/teachers/selectors';
 import { useEffect } from 'react';
-
 import { AppDispatch } from '../../redux/store';
 import { changeFilters } from '../../redux/filters/slice';
 import ResetButton from '../ResetButton/ResetButton';
+import s from './SearchBar.module.css';
 
 export interface IFormValues {
   levels: string;

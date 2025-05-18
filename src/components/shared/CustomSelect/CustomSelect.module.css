@@ -1,18 +1,42 @@
 .wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 80px auto;
+
   & span {
     color: var(--text-grey);
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.29;
     text-transform: capitalize;
   }
 }
 .select {
-  padding: 14px 18px;
+  width: 250px;
+  padding: 6px 8px;
   border-color: transparent;
   border-radius: 14px;
-  font-size: 18px;
-  line-height: 111%;
+  font-size: 14px;
+  line-height: 1.11;
+}
+@media screen and (min-width: 768px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .select {
+    width: auto;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrap {
+    & span {
+      font-size: 14px;
+    }
+  }
+
+  .select {
+    padding: 14px 18px;
+    font-size: 18px;
+  }
 }

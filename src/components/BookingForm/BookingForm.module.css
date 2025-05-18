@@ -33,26 +33,3 @@
   line-height: 1.33;
   color: var(--text-grey);
 }
-/* .wrap {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  row-gap: 4px;
-  column-gap: 14px;
-  columns: 2;
-}
-.avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 100px;
-  grid-row: 1 / span 2;
-  grid-column: 1;
-}
-.wrap > p {
-  grid-row: 1;
-  grid-column: 2;
-}
-.wrap > h3 {
-  grid-row: 2;
-  grid-column: 2;
-} */

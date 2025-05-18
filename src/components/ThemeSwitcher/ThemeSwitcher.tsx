@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useTheme from '../../utils/hooks/useTheme';
 import s from './ThemeSwitcher.module.css';
 import clsx from 'clsx';
+import { useRadialAnimation } from '../../utils/hooks/useRadialAnimation';
 
 const colors = [
   'var(--first-theme)',
@@ -13,6 +14,7 @@ const colors = [
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
   const [showColors, setShowColors] = useState(false);
+  const points = useRadialAnimation(colors.length, showColors, 40, 180, 150);
   const onHandleChange = (e: React.MouseEvent<HTMLDivElement>) => {
     toggleTheme(e.currentTarget.title);
     setShowColors((prev) => !prev);
@@ -29,18 +31,16 @@ const ThemeSwitcher = () => {
 
       {showColors &&
         colors.map((color, index) => {
-          const angle = (180 / colors.length) * index;
-          const radius = 40;
-          const x = radius * Math.cos((angle * Math.PI) / 180);
-          const y = radius * Math.sin((angle * Math.PI) / 180);
+          const { x, y, visible } = points[index];
 
           return (
             <div
               key={color}
-              className={clsx(s.colorCircle, theme === color && s.selected)}
+              className={clsx(s.colorCircle, visible && s.selected)}
               style={{
                 backgroundColor: color,
                 transform: `translate(${x}px, ${y}px)`,
+                transitionDelay: `${(index + 1) * 150}ms`,
               }}
               onClick={onHandleChange}
               title={color}
@@ -48,14 +48,6 @@ const ThemeSwitcher = () => {
           );
         })}
     </div>
-
-    // <div>
-    //   <button className={s.btn}>Change color</button>
-    //   <p>Change color: {theme}</p>
-    //   <button onClick={() => toggleTheme('grey-green')}>Темна тема</button>
-    //   <button onClick={() => toggleTheme('purple')}>Світла тема</button>
-    //   <button onClick={() => toggleTheme('orange')}>Світла тема</button>
-    // </div>
   );
 };
 

@@ -2,12 +2,14 @@
   border: 3px solid var(--bg-color_hover);
   border-radius: 100px;
   min-width: 120px;
+  max-width: 120px;
   height: 120px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  margin: 0 auto;
 }
 .avatar {
   width: 96px;

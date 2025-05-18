@@ -1,6 +1,7 @@
 # Learn-lingo
 
-**Learn-lingo** is a desktop-oriented React application designed to help users find language tutors for foreign language learning. It offers a wide range of features including tutor filtering, theming, and trial lesson booking.
+**Learn-lingo** is a responsive React application designed to help users find language tutors for foreign language learning. It offers a wide range of features including tutor filtering, theming, and trial lesson booking.
+![App Snapshot](/public/title_picture)
 
 ## ✨ Features
 
@@ -33,19 +34,18 @@ You can view the design prototype on Figma:
 - React Router v7
 - Modern Normalize
 - Theme management with CSS Modules and clsx
-
-## 📁 Project Structure
+- Gsap
 
 ## 📁 Project Structure
 
 ````bash
 src/
 ├── components/     # Reusable components
-├── pages/          # Route-based views
-├── hooks/          # Custom hooks
+├── firebase/       # Firebase configurations
+├── pages/          # Custom hooks
 ├── redux/          # Redux slices and store config
-├── themes/         # Theme configurations
-├── utils/          # Helper functions
+├── styles/         # Styles configurations and variables
+├── utils/          # Helper functions & Custom hooks
 └── App.tsx         # App entry point
 ```
 

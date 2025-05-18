@@ -9,6 +9,7 @@ import { AppDispatch } from '../../redux/store';
 import { smoothScroll } from '../../utils/smoothScroll';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import { RefObject } from 'react';
+import s from './LoadMoreButton.module.css';
 
 type LoadMoreButtonProps = {
   listRef: RefObject<HTMLUListElement | null>;
@@ -29,6 +30,7 @@ const LoadMoreButton = ({ listRef }: LoadMoreButtonProps) => {
       onClick={loadMore}
       disabled={!hasMore || isLoading}
       type="button"
+      additionalClass={s.button}
     >
       Load more
     </CustomButton>

@@ -9,16 +9,19 @@ import { useRef } from 'react';
 
 import LoadMoreButton from '../../components/LoadMoreButton/LoadMoreButton';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import Container from '../../components/shared/Container/Container';
 
 const TeachersPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const listRef = useRef<HTMLUListElement>(null);
 
   return (
-    <section className={s.teachers}>
-      <SearchBar />
-      <TeachersList ref={listRef} />
-      {isLoading ? <Loader /> : <LoadMoreButton listRef={listRef} />}
+    <section>
+      <Container additionalClass={s.teachers}>
+        <SearchBar />
+        <TeachersList ref={listRef} />
+        {isLoading ? <Loader /> : <LoadMoreButton listRef={listRef} />}
+      </Container>
     </section>
   );
 };
