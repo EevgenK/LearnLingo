@@ -1,7 +1,7 @@
 # Learn-lingo
 
 **Learn-lingo** is a responsive React application designed to help users find language tutors for foreign language learning. It offers a wide range of features including tutor filtering, theming, and trial lesson booking.
-![App Snapshot](/public/title_picture)
+![App Snapshot](/title_picture.webp)
 
 ## ✨ Features
 

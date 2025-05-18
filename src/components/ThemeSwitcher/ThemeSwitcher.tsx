@@ -31,12 +31,12 @@ const ThemeSwitcher = () => {
 
       {showColors &&
         colors.map((color, index) => {
-          const { x, y, visible } = points[index];
+          const { x, y } = points[index];
 
           return (
             <div
               key={color}
-              className={clsx(s.colorCircle, visible && s.selected)}
+              className={clsx(s.colorCircle, theme && s.selected)}
               style={{
                 backgroundColor: color,
                 transform: `translate(${x}px, ${y}px)`,
