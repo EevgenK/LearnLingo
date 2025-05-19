@@ -16,38 +16,36 @@ import {
 import { selectFavorites } from '../../redux/auth/selectors';
 import s from './TeachersList.module.css';
 type TeachersListProps = {
-  type?: string;
+  type?: '' | 'favorites';
 };
 
 const TeachersList = forwardRef<HTMLUListElement, TeachersListProps>(
   ({ type = '' }, ref) => {
     const dispatch = useDispatch<AppDispatch>();
     const favoriteIds = useSelector(selectFavorites);
+
     const teachers = useSelector(
       type === 'favorites'
         ? selectFavoriteTeachers
         : selectFilteredTeachersList,
     );
+
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
 
     useEffect(() => {
-      if (!type && teachers.length === 0) {
+      if (type === 'favorites') {
+        dispatch(fetchTeachersByIds(favoriteIds.length ? favoriteIds : ['']));
+      } else if (!teachers.length) {
         dispatch(fetchTeachers(null));
-      } else if (favoriteIds.length > 0) {
-        dispatch(fetchTeachersByIds(favoriteIds));
       }
     }, [dispatch, type, favoriteIds, teachers.length]);
 
-    if (isLoading && teachers.length === 0) {
-      return <Loader />;
-    }
-    if (error) {
-      return <p className={s.error}>Error: {error}</p>;
-    }
-    if (!isLoading && teachers.length === 0) {
+    if (isLoading && !teachers.length) return <Loader />;
+    if (error) return <p className={s.error}>Error: {error}</p>;
+    if (!isLoading && !teachers.length)
       return <p className={s.empty}>No teachers found.</p>;
-    }
+
     return teachers.length ? (
       <ul className={s.list} ref={ref}>
         {teachers.map((el) => (

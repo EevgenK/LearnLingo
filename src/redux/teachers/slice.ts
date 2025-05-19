@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { TeachersState } from '../../types/teachersState.type';
 import { fetchTeachers, fetchTeachersByIds } from './operations';
+import { addUniqueTeachers } from '../../utils/addUniqueTeachers';
 
 const initialState: TeachersState = {
   teachers: [],
@@ -26,7 +27,10 @@ const slice = createSlice({
       })
       .addCase(fetchTeachers.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.teachers.push(...action.payload.teachers);
+        state.teachers = addUniqueTeachers(
+          state.teachers,
+          action.payload.teachers,
+        );
         state.lastKey = action.payload.lastKey;
         state.hasMore = action.payload.hasMore;
       })
